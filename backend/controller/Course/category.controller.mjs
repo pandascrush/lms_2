@@ -38,26 +38,3 @@ export const addCategory = (req, res) => {
   });
 };
 
-export const getUserById = (req, res) => {
-  const { id } = req.params; // Extract user ID from request params
-
-  // Check if the user ID is provided
-  if (!id) {
-    return res.status(400).json({ message: "User ID is required" });
-  }
-
-  // SQL query to fetch user details by ID
-  db.query("SELECT * FROM user WHERE user_id = ?", [id], (err, result) => {
-    if (err) {
-      console.error("Database error:", err);
-      return res.status(500).json({ message: "Internal server error" });
-    }
-
-    if (result.length === 0) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    // Send back the user details as response
-    res.json({ user: result[0] });
-  });
-};
