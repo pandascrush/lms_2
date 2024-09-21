@@ -44,8 +44,8 @@ app.get("/content", (req, res) => {
   res.send({ content: richTextContent });
 });
 
-// Test route
-app.get("/test", (req, res) => {
+// Test rout
+app.get("/api/test", (req, res) => {
   res.json({ msg: "hello world" });
 });
 

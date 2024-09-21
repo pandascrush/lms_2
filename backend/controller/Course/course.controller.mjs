@@ -445,7 +445,7 @@ export const getModuleByCourseId = async (req, res) => {
 
 export const getModulesByCourseId = (req, res) => {
   const { courseId } = req.params; // Assuming courseId is passed as a route parameter
-  const baseUrl = "http://localhost:5000"; // Base URL for images
+  const baseUrl = `${process.env.URL}`; // Base URL for images
 
   // Query to get module details, count of quizzes, and count of videos based on courseId
   const query = `
